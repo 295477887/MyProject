@@ -18,12 +18,12 @@ public class TcpServer {
         this.port = port;
     }
 
-    public void run() throws Exception{
+    public void chen() throws Exception{
         //处理io操作的线程池
         //接收客户端连接
-        EventLoopGroup bossGroup = new NioEventLoopGroup();
+        EventLoopGroup bossGroup = new NioEventLoopGroup(2);
         //处理客户端数据
-        EventLoopGroup workerGroup = new NioEventLoopGroup();
+        EventLoopGroup workerGroup = new NioEventLoopGroup(2);
         try {
             //启动服务的辅助类，有关socket的参数可以通过ServerBootstrap进行设置
             ServerBootstrap b = new ServerBootstrap();
@@ -58,6 +58,6 @@ public class TcpServer {
         {
             port = 8080;
         }
-        new TcpServer(port).run();
+        new TcpServer(port).chen();
     }
 }

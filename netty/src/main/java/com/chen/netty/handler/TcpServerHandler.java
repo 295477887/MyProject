@@ -6,8 +6,9 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 public class TcpServerHandler extends ChannelInboundHandlerAdapter{
     @Override
     public void channelRead(ChannelHandlerContext ctx,Object msg) throws Exception{
-        ctx.write(msg);
         System.out.println("msg============="+msg);
+        ctx.write(msg);
+        ctx.flush();
     }
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception{
