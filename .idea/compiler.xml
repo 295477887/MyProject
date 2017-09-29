@@ -7,10 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="netty" />
+        <module name="poi" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="MyProject" target="${project.java.version}" />
       <module name="netty" target="1.8" />
+      <module name="poi" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
