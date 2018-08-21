@@ -20,6 +20,8 @@
     <modules>
         <module>netty</module>
         <module>poi</module>
+        <module>mqtt-paho</module>
+        <module>mqtt-springboot</module>
     </modules>
     <dependencies>
 
