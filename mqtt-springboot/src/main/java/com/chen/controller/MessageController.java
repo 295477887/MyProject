@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author: ChenJie
  * @date 2018/8/21
  */
-@RestController(value="/mqtt")
+@RestController
 public class MessageController {
 
     @Autowired
