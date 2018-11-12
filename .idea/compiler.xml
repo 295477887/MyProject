@@ -6,14 +6,28 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="kafka" />
+        <module name="lambda" />
+        <module name="lombok" />
+        <module name="mqtt" />
+        <module name="mqtt-paho" />
+        <module name="mqtt-springboot" />
         <module name="netty" />
         <module name="poi" />
+        <module name="websocket" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="MyProject" target="${project.java.version}" />
+      <module name="kafka" target="1.8" />
+      <module name="lambda" target="1.8" />
+      <module name="lombok" target="1.8" />
+      <module name="mqtt" target="1.8" />
+      <module name="mqtt-paho" target="1.8" />
+      <module name="mqtt-springboot" target="1.8" />
+      <module name="MyProject" target="1.8" />
       <module name="netty" target="1.8" />
       <module name="poi" target="1.5" />
+      <module name="websocket" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

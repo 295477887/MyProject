@@ -22,6 +22,10 @@
         <module>poi</module>
         <module>mqtt-paho</module>
         <module>mqtt-springboot</module>
+        <module>lambda</module>
+        <module>lombok</module>
+        <module>websocket</module>
+        <module>kafka</module>
     </modules>
     <dependencies>
 

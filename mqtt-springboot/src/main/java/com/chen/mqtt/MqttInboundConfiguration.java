@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.integration.annotation.ServiceActivator;
 import org.springframework.integration.channel.DirectChannel;
 import org.springframework.integration.core.MessageProducer;
+import org.springframework.integration.mqtt.core.DefaultMqttPahoClientFactory;
 import org.springframework.integration.mqtt.core.MqttPahoClientFactory;
 import org.springframework.integration.mqtt.inbound.MqttPahoMessageDrivenChannelAdapter;
 import org.springframework.integration.mqtt.support.DefaultPahoMessageConverter;
@@ -31,10 +32,16 @@ public class MqttInboundConfiguration {
     }
     @Bean
     public MessageProducer inbound(MqttPahoClientFactory mqttPahoClientFactory) {
+
+        DefaultMqttPahoClientFactory factory = new DefaultMqttPahoClientFactory();
+        factory.setServerURIs(mqttProperties.getInbound().getUrl().split(","));
         String[] inboundTopics = mqttProperties.getInbound().getTopics().split(",");
         MqttPahoMessageDrivenChannelAdapter adapter =
-                new MqttPahoMessageDrivenChannelAdapter(mqttProperties.getInbound().getUrl(), mqttProperties.getInbound().getClientId(),
-                        mqttPahoClientFactory,inboundTopics);
+//                new MqttPahoMessageDrivenChannelAdapter(mqttProperties.getInbound().getUrl(), mqttProperties.getInbound().getClientId(),
+                new MqttPahoMessageDrivenChannelAdapter(mqttProperties.getInbound().getClientId(),
+                        factory,
+//                        mqttPahoClientFactory,inboundTopics);
+                        inboundTopics);
         adapter.setCompletionTimeout(5000);
         adapter.setConverter(new DefaultPahoMessageConverter());
         adapter.setQos(1);
@@ -49,7 +56,8 @@ public class MqttInboundConfiguration {
 
             @Override
             public void handleMessage(Message<?> message) throws MessagingException {
-                log.info("收到消息："+(String) message.getPayload());
+
+                log.info("收到消息："+(String) message.getPayload()+"  "+message.getHeaders());
             }
 
         };

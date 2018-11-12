@@ -9,9 +9,9 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
  */
 public class Publisher {
     //tcp://MQTT安装的服务器地址:MQTT定义的端口号
-    public static final String HOST = "tcp://172.16.1.86:1883";
+    public static final String HOST = "tcp://10.30.50.190:1883";
     //定义一个主题
-    public static final String TOPIC = "speedTopic";
+    public static final String TOPIC = "china";
     //定义MQTT的ID，可以在MQTT服务配置中指定
     private static final String clientid = "server84";
 
@@ -61,19 +61,24 @@ public class Publisher {
     }
 
     public static void main(String[] args) throws MqttException {
+
+        send();
+
+
+
+
+    }
+
+    public static void send() throws MqttException {
         Publisher server = new Publisher();
         server.message = new MqttMessage();
-        server.message.setQos(1);
+        server.message.setQos(0);
         server.message.setRetained(true);
-
-
-        for(int i=0;i<10;i++){
-//            server.message.setPayload(("hello,topic speed "+i).getBytes());
-            server.message.setPayload((" ").getBytes());
+        for(int i=0;i<1000;i++){
+            server.message.setPayload((Thread.currentThread()+"= "+i).getBytes());
             server.publish(server.topic,server.message);
             System.out.println("=======================================================");
         }
-
     }
 
 

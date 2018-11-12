@@ -27,8 +27,8 @@ public class MqttOutboundConfiguration {
 //        factory.setServerURIs("tcp://192.168.10.100:1883", "tcp://host2:1883");
         factory.setServerURIs(serverURIs);
         factory.setCleanSession(false);
-        factory.setUserName(mqttProperties.getOutbound().getUsername());
-        factory.setPassword(mqttProperties.getOutbound().getPassword());
+//        factory.setUserName(mqttProperties.getOutbound().getUsername());
+//        factory.setPassword(mqttProperties.getOutbound().getPassword());
         return factory;
     }
 

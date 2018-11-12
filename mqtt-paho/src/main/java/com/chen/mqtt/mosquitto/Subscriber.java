@@ -13,8 +13,8 @@ import java.util.concurrent.ScheduledExecutorService;
  * @date 2018/8/10
  */
 public class Subscriber {
-    public static final String HOST = "tcp://172.16.1.86:1883";
-    public static final String TOPIC = "speedTopic";
+    public static final String HOST = "tcp://10.30.50.190:1883";
+    public static final String TOPIC = "/bench";
     private static final String clientid = "client83";
     private MqttClient client;
     private MqttConnectOptions options;
