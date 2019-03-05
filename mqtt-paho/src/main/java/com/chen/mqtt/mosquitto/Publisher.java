@@ -74,8 +74,13 @@ public class Publisher {
         server.message = new MqttMessage();
         server.message.setQos(0);
         server.message.setRetained(true);
-        for(int i=0;i<1000;i++){
-            server.message.setPayload((Thread.currentThread()+"= "+i).getBytes());
+        for(int i=0;i<10000;i++){
+            server.message.setPayload((Thread.currentThread()+"===========================" +
+                    "=====================================================================" +
+                    "=====================================================================" +
+                    "=====================================================================" +
+                    "=====================================================================" +
+                    "===================================================================== "+i).getBytes());
             server.publish(server.topic,server.message);
             System.out.println("=======================================================");
         }

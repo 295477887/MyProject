@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/lombok/pom.xml" />
         <option value="$PROJECT_DIR$/websocket/pom.xml" />
         <option value="$PROJECT_DIR$/kafka/pom.xml" />
+        <option value="$PROJECT_DIR$/fastdfs/pom.xml" />
       </list>
     </option>
   </component>
