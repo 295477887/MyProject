@@ -15,6 +15,7 @@
         <module name="mqtt-springboot" />
         <module name="netty" />
         <module name="poi" />
+        <module name="test" />
         <module name="websocket" />
       </profile>
     </annotationProcessing>
@@ -29,6 +30,7 @@
       <module name="MyProject" target="1.8" />
       <module name="netty" target="1.8" />
       <module name="poi" target="1.5" />
+      <module name="test" target="1.8" />
       <module name="websocket" target="1.8" />
     </bytecodeTargetLevel>
   </component>

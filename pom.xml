@@ -27,6 +27,7 @@
         <module>websocket</module>
         <module>kafka</module>
         <module>fastdfs</module>
+        <module>test</module>
     </modules>
     <dependencies>
 
