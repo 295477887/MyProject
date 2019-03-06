@@ -13,14 +13,14 @@ import java.util.Properties;
  * @author: ChenJie
  * @date 2019/3/5
  */
-public class TestRobot {
+public class TestRobot1920 {
     public static void main(String[] args) {
         try {
             int x = 1075;
             int y = 600;
             Thread.sleep(5000);
             int count = 1;
-            for(int i=0;i<1000;i++){
+            for(int i=0;i<1000000;i++){
                 Robot robot = new Robot();
                 robot.mouseMove(x,y);
 
@@ -101,7 +101,7 @@ public class TestRobot {
             // 发送消息
             Transport.send(message);
             System.out.println("邮件发送成功....");
-        }catch (Exception mex) {
+        }catch (MessagingException mex) {
             mex.printStackTrace();
         }
     }
