@@ -39,6 +39,7 @@ public class TestRobot1920 {
                 //中间出现白色提示框 并且 左侧是黑色
                 if(centerColor.equals(Color.white) && isLeftDark){
                     robot.mousePress(KeyEvent.BUTTON1_MASK);
+                    robot.delay(20);
                     robot.mouseRelease(KeyEvent.BUTTON1_MASK);
                     System.out.println("点击："+count++);
                 }
