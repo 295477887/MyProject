@@ -19,7 +19,7 @@ import java.util.Properties;
  * @author: ChenJie
  * @date 2019/3/5
  */
-public class TestRobot1024 {
+public class TestRobot1024New {
     private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     public static Properties properties;
 
@@ -48,13 +48,13 @@ public class TestRobot1024 {
 				Thread.sleep(2000);
 
 				//��� ȫ��
-				robot.mouseMove(40,175);
+				robot.mouseMove(50,180);
 				mouseLeftClick(robot,KeyEvent.BUTTON1_MASK,20);
 				System.out.println("���ȫ��");
 				Thread.sleep(2000);
 
 				//��������,��� 820  435
-				robot.mouseMove(820,435);
+				robot.mouseMove(990,310);
 				mouseLeftClick(robot,KeyEvent.BUTTON1_MASK,200);
 				mouseLeftClick(robot,KeyEvent.BUTTON1_MASK,200);
 				mouseLeftClick(robot,KeyEvent.BUTTON1_MASK,200);
@@ -64,9 +64,11 @@ public class TestRobot1024 {
 				System.out.println("��������");
 				Thread.sleep(1000);
 
-				robot.mouseMove(820,435);
+				
+				robot.mouseMove(990,310);
 				mouseLeftClick(robot,KeyEvent.BUTTON1_MASK,200);
 				Thread.sleep(1000);
+				
 
 
                 //�ѿγ���ճ���������
@@ -81,14 +83,19 @@ public class TestRobot1024 {
 				Thread.sleep(1000);
 				System.out.println("ճ���γ���:��"+courseName+"��");
 
+
                 //�������
-                robot.mouseMove(963,436);
-                mouseLeftClick(robot,KeyEvent.BUTTON1_MASK,20);
+                //robot.mouseMove(963,436);
+                //mouseLeftClick(robot,KeyEvent.BUTTON1_MASK,20);
+				//�س�
+				robot.keyPress(KeyEvent.VK_ENTER);
+				robot.delay(200);
+                robot.keyRelease(KeyEvent.VK_ENTER);
 				System.out.println("����");
                 Thread.sleep(2000);
 
                 //����γ�
-                robot.mouseMove(160,550);
+                robot.mouseMove(60,420);
                 mouseLeftClick(robot,KeyEvent.BUTTON1_MASK,20);
 				System.out.println("����γ�");
                 Thread.sleep(5000);
@@ -123,8 +130,8 @@ public class TestRobot1024 {
             //System.out.println("����Ϊ:"+di.width +" , "+di.height);
             Rectangle rec = new Rectangle(0, 0, di.width, di.height);
             BufferedImage bi = robot.createScreenCapture(rec);
-            int centerColorRGB = bi.getRGB(620, 420);
-            int leftColorRGB = bi.getRGB(250, 550);
+            int centerColorRGB = bi.getRGB(500, 550);
+            int leftColorRGB = bi.getRGB(210, 550);
             Color centerColor =new Color(16777216 + centerColorRGB);
             Color leftColor =new Color(16777216 + leftColorRGB);
             System.out.println(i+" ������ɫ��"+centerColor + ", �����ɫ��"+leftColor);
@@ -213,7 +220,7 @@ public class TestRobot1024 {
         BufferedReader br = null;
         try
         {
-            inputStream = TestRobot1024.class.getClassLoader().getResourceAsStream("course.properties");
+            inputStream = TestRobot1024New.class.getClassLoader().getResourceAsStream("course.properties");
             br = new BufferedReader(new InputStreamReader(inputStream,"utf-8"));
             properties.load(br);
         }
