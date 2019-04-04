@@ -14,17 +14,18 @@ import java.net.Socket;
  */
 //public class VideoReader implements CommandLineRunner {
 public class VideoReader {
+    private static final int CONTENT_SIZE = 980;
     private static final int BODY_SIZE = 950;
 
 //    @Override
     public void run1(){
-        byte [] content = new byte[980];
+        byte [] content = new byte[CONTENT_SIZE];
         //头信息
         byte [] header = new byte[30];
         fixHeader(header);
         try{
             FileInputStream fis = new FileInputStream("F:\\study\\rtmp\\windows\\orange.mp4");
-            byte [] buf = new byte[950];
+            byte [] buf = new byte[BODY_SIZE];
             int length;
             int i=0;
             while((length = fis.read(buf)) != -1){
@@ -71,7 +72,7 @@ public class VideoReader {
 
     public static void main(String[] args) {
         System.out.println("---------------------------");
-        byte [] content = new byte[980];
+        byte [] content = new byte[CONTENT_SIZE];
         //头信息
         byte [] header = new byte[30];
         fixHeader(header);
@@ -79,7 +80,7 @@ public class VideoReader {
             Socket socket = new Socket("127.0.0.1",6666);
             OutputStream os = socket.getOutputStream();
             FileInputStream fis = new FileInputStream("F:\\study\\rtmp\\windows\\orange.mp4");
-            byte [] buf = new byte[950];
+            byte [] buf = new byte[BODY_SIZE];
             int length;
             int i=0;
             while((length = fis.read(buf)) != -1){

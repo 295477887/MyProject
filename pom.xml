@@ -28,6 +28,8 @@
         <module>kafka</module>
         <module>fastdfs</module>
         <module>test</module>
+        <module>rtmp</module>
+        <module>video-reader</module>
     </modules>
     <dependencies>
 
