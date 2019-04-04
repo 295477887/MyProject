@@ -5,8 +5,14 @@ import com.chen.push.PushManager;
 import com.chen.push.PushTask;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
+import org.bytedeco.javacpp.avcodec;
+import org.bytedeco.javacv.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PipedInputStream;
+import java.io.PipedOutputStream;
 
 /***
  * RTP 封包处理类
@@ -58,6 +64,46 @@ public class RtpPacketHandler extends SimpleChannelInboundHandler<RtpMessage> {
             if (rtpMessage.getFlag() == 0 || rtpMessage.getFlag() == 2) {
                 task.flush();
             }
+        }
+    }
+
+
+//    @Override
+    protected void channelRead1(ChannelHandlerContext ctx, RtpMessage rtpMessage) throws Exception {
+        System.out.println(rtpMessage);
+
+        if (rtpMessage.getDataType() != 3 && rtpMessage.getDataType() != 4) {
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+
+            PipedOutputStream pos = new PipedOutputStream();
+            PipedInputStream pis = new PipedInputStream(1000);
+            pis.connect(pos);
+            FFmpegFrameGrabber grabber = new FFmpegFrameGrabber(pis);
+            FFmpegFrameRecorder recorder = new FFmpegFrameRecorder("rtmp://10.30.50.195:1935/myapp/stream5", 352,288,0);
+            grabber.start();
+
+            recorder.setInterleaved(true);
+            recorder.setVideoCodec(avcodec.AV_CODEC_ID_H264); // 28
+            recorder.setFormat("flv"); // rtmp的类型
+            recorder.setFrameRate(25);
+            recorder.setPixelFormat(0); // yuv420p
+            recorder.start();
+
+            bos.write(rtpMessage.getBody());
+            bos.flush();
+            pos.write(bos.toByteArray());
+            pos.flush();
+            bos.reset();
+
+            try {
+                Frame frame = grabber.grab();
+                recorder.record(frame);
+            } catch (FrameGrabber.Exception e) {
+                e.printStackTrace();
+            } catch (FrameRecorder.Exception e) {
+                e.printStackTrace();
+            }
+
         }
     }
 }
