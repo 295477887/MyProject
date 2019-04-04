@@ -11,6 +11,26 @@ public final class Convert {
 	private final static byte[] HEX = "0123456789ABCDEF".getBytes();
 
 	/**
+	 * 二进制数组转Long
+	 *
+	 * @param bytes 二进制数组,每个元素只能是0或1
+	 * @param size  字节数，二进制数组个数/8
+	 */
+	public static long binary2Long(byte[] bytes, int size) {
+		long intValue = 0;
+		if (bytes.length % 8 != 0) {
+			throw new RuntimeException("The size of byte array must be based on multiples of 8!");
+		}
+		for (int i = 0; i < bytes.length; i++) {
+			if (bytes[i] != 0 && bytes[i] != 1) {
+				throw new RuntimeException("The byte array must be binary!");
+			}
+			intValue += (bytes[i] & 0xFF) << (8 * size - i - 1);
+		}
+		return intValue;
+	}
+
+	/**
 	 * 字节数组转换到十六进制字符串
 	 * 
 	 * @param bytes
