@@ -66,6 +66,19 @@ public class RtmpConnection implements RtmpPublisher {
   public RtmpConnection() {
   }
 
+//  private void handshake(InputStream in, OutputStream out) throws IOException {
+//    Handshake handshake = new Handshake();
+//    handshake.writeC0(out);
+//    handshake.writeC1(out); // Write C1 without waiting for S0
+//    out.flush();
+//    handshake.readS0(in);
+//    handshake.readS1(in);
+//    handshake.writeC2(out);
+//    out.flush();
+//    handshake.readS2(in);
+//  }
+
+
   private void handshake(InputStream in, OutputStream out) throws IOException {
     Handshake handshake = new Handshake();
     handshake.writeC0(out);
@@ -73,9 +86,9 @@ public class RtmpConnection implements RtmpPublisher {
     out.flush();
     handshake.readS0(in);
     handshake.readS1(in);
+    handshake.readS2(in);
     handshake.writeC2(out);
     out.flush();
-    handshake.readS2(in);
   }
 
   @Override
@@ -97,6 +110,8 @@ public class RtmpConnection implements RtmpPublisher {
     appName = rtmpMatcher.group(3);
     streamName = rtmpMatcher.group(4);
     tcUrl = rtmpMatcher.group(0).substring(0, rtmpMatcher.group(0).length() - streamName.length());
+    //仿照ffmpeg
+    tcUrl = rtmpMatcher.group(0).substring(0, rtmpMatcher.group(0).length() - streamName.length()-1);
 
     // socket connection
     Log.d(TAG, "connect() called. Host: "
@@ -159,17 +174,26 @@ public class RtmpConnection implements RtmpPublisher {
       Command invoke = new Command("connect", ++transactionIdCounter, chunkStreamInfo);
       invoke.getHeader().setMessageStreamId(0);
       AmfObject args = new AmfObject();
+//      args.setProperty("app", appName);
+//      args.setProperty("flashVer", "FMLE/3.0 (compatible; Lavf57.56.101)");
+//      args.setProperty("swfUrl", swfUrl);
+//      args.setProperty("tcUrl", tcUrl);
+//      args.setProperty("fpad", false);
+//      args.setProperty("capabilities", 239);
+//      args.setProperty("audioCodecs", 3575);
+//      args.setProperty("videoCodecs", 252);
+//      args.setProperty("videoFunction", 1);
+//      args.setProperty("pageUrl", pageUrl);
+//      args.setProperty("objectEncoding", 0);
+
+      //仿照ffmpeg
       args.setProperty("app", appName);
-      args.setProperty("flashVer", "FMLE/3.0 (compatible; Lavf57.56.101)");
-      args.setProperty("swfUrl", swfUrl);
+      args.setProperty("type", "nonprivate");
+      args.setProperty("flashVer", "FMLE/3.0 (compatible; Lavf58.17.101)");
       args.setProperty("tcUrl", tcUrl);
-      args.setProperty("fpad", false);
-      args.setProperty("capabilities", 239);
-      args.setProperty("audioCodecs", 3575);
-      args.setProperty("videoCodecs", 252);
-      args.setProperty("videoFunction", 1);
-      args.setProperty("pageUrl", pageUrl);
-      args.setProperty("objectEncoding", 0);
+
+
+
       invoke.addData(args);
       sendRtmpPacket(invoke);
     }
@@ -347,6 +371,17 @@ public class RtmpConnection implements RtmpPublisher {
     ecmaArray.setProperty("audiosamplesize", 16);
     ecmaArray.setProperty("stereo", true);
     ecmaArray.setProperty("filesize", 0);
+
+    //仿照ffmpeg
+//    ecmaArray.setProperty("duration", 0);
+//    ecmaArray.setProperty("width", videoWidth);
+//    ecmaArray.setProperty("height", videoHeight);
+//    ecmaArray.setProperty("videodatarate", 0);
+//    ecmaArray.setProperty("framerate", 29.9643424325053);
+//    ecmaArray.setProperty("videocodecid", 7);
+//    ecmaArray.setProperty("encoder", "Lavf58.17.101");
+//    ecmaArray.setProperty("filesize", 0);
+
     metadata.addData(ecmaArray);
     sendRtmpPacket(metadata);
   }

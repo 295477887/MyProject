@@ -26,7 +26,7 @@ public class MyProducer extends Thread{
             System.out.println("producer==");
             try {
                 fis = new FileInputStream(inputFile);
-                byte [] buf = new byte[1000];
+                byte [] buf = new byte[100000];
                 int len;
                 while((len=fis.read(buf)) != -1){
                     outputStream.write(buf);

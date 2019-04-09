@@ -41,7 +41,7 @@ public class PushTask extends Thread {
 //            recorder = new FFmpegFrameRecorder("rtmp://172.16.1.86:1935/live/chen", 352,288,0);
             recorder.setInterleaved(true);
             recorder.setVideoCodec(avcodec.AV_CODEC_ID_H264); // 28
-            recorder.setFormat("flv"); // rtmpµƒ¿‡–Õ
+            recorder.setFormat("flv"); // rtmp???
             recorder.setFrameRate(25);
             recorder.setPixelFormat(0); // yuv420p
 

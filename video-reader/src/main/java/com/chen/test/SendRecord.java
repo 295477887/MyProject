@@ -11,7 +11,8 @@ public class SendRecord {
     public static void main(String[] args)
             throws Exception {
 
-        String inputFile = "F:\\study\\rtmp\\windows\\orange.mp4";
+//        String inputFile = "F:\\study\\rtmp\\windows\\orange.mp4";
+        String inputFile = "F:\\study\\rtmp\\windows\\test.264";
 //
         String outputFile = "rtmp://10.30.50.195:1935/myapp/stream5";
 

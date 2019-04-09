@@ -190,7 +190,7 @@ public class Util {
       md.update(s.getBytes("UTF-8"), 0, s.length());
       byte[] md5hash = md.digest();
       return Base64.encode(md5hash);
-      //TODO 注掉安卓加密
+      //TODO ??????
 //      return Base64.encodeToString(md5hash, Base64.NO_WRAP);
     } catch (Exception e) {
       return null;

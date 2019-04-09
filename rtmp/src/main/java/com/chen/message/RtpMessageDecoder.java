@@ -8,27 +8,27 @@ import io.netty.handler.codec.ByteToMessageDecoder;
 import java.util.List;
 
 /***
- * RTP ÏûÏ¢½âÂëÆ÷
+ * RTP æ¶ˆæ¯è§£ç å™¨
  *
- * @author ĞìÍòÀû
+ * @author å¾ä¸‡åˆ©
  * @date 2018/7/16 0016 18:08
  */
 public class RtpMessageDecoder extends ByteToMessageDecoder {
 
-    //RTP ·â°üÍ·²¿×î´ó³¤¶È£¨¿ÉÄÜÄ³Ğ©×Ö¶ÎÃ»ÓĞ£¬ËùÒÔÓ¦¸ÃÈ¡×î´óµÄÄÇ¸ö³¤¶È£©
+    //RTP å°åŒ…å¤´éƒ¨æœ€å¤§é•¿åº¦ï¼ˆå¯èƒ½æŸäº›å­—æ®µæ²¡æœ‰ï¼Œæ‰€ä»¥åº”è¯¥å–æœ€å¤§çš„é‚£ä¸ªé•¿åº¦ï¼‰
     private final int MIN_HEADER_LENGTH = 30;
 
     @Override
     protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf in, List<Object> list) throws Exception {
-        if (in == null || in.readableBytes() <= MIN_HEADER_LENGTH)  //×î»µ´òËã£¬ÖÁÉÙ30¸ö×Ö½ÚÊ±²ÅÄÜ¶Áµ½Êı¾İÌå³¤¶È
+        if (in == null || in.readableBytes() <= MIN_HEADER_LENGTH)  //æœ€åæ‰“ç®—ï¼Œè‡³å°‘30ä¸ªå­—èŠ‚æ—¶æ‰èƒ½è¯»åˆ°æ•°æ®ä½“é•¿åº¦
             return;
 
         in.markReaderIndex();
-        //Ìø¹ıÎŞ¹Ø½ôÒªµÄÊı¾İ
+        //è·³è¿‡æ— å…³ç´§è¦çš„æ•°æ®
         in.skipBytes(5);
 
         RtpMessage msg = new RtpMessage();
-        //M£¨1 bit£©¡¢PT£¨7 bit£© ¹²Õ¼ÓÃ 1 ¸ö×Ö½Ú
+        //Mï¼ˆ1 bitï¼‰ã€PTï¼ˆ7 bitï¼‰ å…±å ç”¨ 1 ä¸ªå­—èŠ‚
         byte b = in.readByte();
 
         msg.setM((byte)((b >> 7) & 0x1));
@@ -41,30 +41,30 @@ public class RtpMessageDecoder extends ByteToMessageDecoder {
 
         msg.setLogicChnnel(in.readByte());
 
-        //Êı¾İÀàĞÍ£¨4 bit£©¡¢·Ö°ü´¦Àí±ê¼Ç£¨4 bit£©¹²Õ¼ÓÃÒ»¸ö×Ö½Ú
+        //æ•°æ®ç±»å‹ï¼ˆ4 bitï¼‰ã€åˆ†åŒ…å¤„ç†æ ‡è®°ï¼ˆ4 bitï¼‰å…±å ç”¨ä¸€ä¸ªå­—èŠ‚
         b = in.readByte();
 
         msg.setDataType((byte) (b >> 4));
         msg.setFlag((byte) (b & 0x0f));
 
-        if (msg.getDataType() != 4) {   //²»ÎªÍ¸´«Êı¾İÀàĞÍ
+        if (msg.getDataType() != 4) {   //ä¸ä¸ºé€ä¼ æ•°æ®ç±»å‹
             msg.setTimestamp(in.readLong());
         }
 
-        if (msg.getDataType() != 3 && msg.getDataType() != 4) { //ÊÓÆµÊı¾İÀàĞÍ²ÅÓĞÒÔÏÂ×Ö¶Î
+        if (msg.getDataType() != 3 && msg.getDataType() != 4) { //è§†é¢‘æ•°æ®ç±»å‹æ‰æœ‰ä»¥ä¸‹å­—æ®µ
             msg.setLIFI(in.readShort());
             msg.setLFI(in.readShort());
         }
 
 
-        //Êı¾İÌå³¤¶È
+        //æ•°æ®ä½“é•¿åº¦
         msg.setLength(in.readShort());
 
         if (in.readableBytes() < msg.getLength()) {
             in.resetReaderIndex();
             return;
         }
-        //Êı¾İÌå
+        //æ•°æ®ä½“
         byte[] body = new byte[msg.getLength()];
         in.readBytes(body);
         msg.setBody(body);
