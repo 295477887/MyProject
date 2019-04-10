@@ -14,8 +14,8 @@ import java.net.Socket;
  */
 //public class VideoReader implements CommandLineRunner {
 public class VideoReader {
-    private static final int CONTENT_SIZE = 3980;
-    private static final int BODY_SIZE = 3950;
+    private static final int CONTENT_SIZE = 980;
+    private static final int BODY_SIZE = 950;
 
 
     private static void fixHeader(byte [] header){
@@ -68,7 +68,7 @@ public class VideoReader {
 //                System.out.println("=="+Convert.bytesToHexString(content));
                 os.write(content);
                 os.flush();
-                Thread.sleep(1000);
+                Thread.sleep(200);
             }
         }
         catch(Exception e){
