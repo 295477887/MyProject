@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/fastdfs" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/kafka" charset="UTF-8" />
@@ -9,7 +9,15 @@
     <file url="file://$PROJECT_DIR$/mqtt-paho" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mqtt-springboot" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/netty" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rtmp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rtmp-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rtmp/src/main/java/com/chen/handler/RtpPacketHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rtmp/src/main/java/com/chen/message/RtpMessage.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rtmp/src/main/java/com/chen/message/RtpMessageDecoder.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rtmp/src/main/java/com/chen/push/PushTask.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rtmp/src/main/java/com/chen/util/Util.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/test" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/video-reader" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/websocket" charset="UTF-8" />
   </component>
 </project>

@@ -9,13 +9,17 @@
         <module name="fastdfs" />
         <module name="kafka" />
         <module name="lambda" />
-        <module name="lombok" />
         <module name="mqtt" />
         <module name="mqtt-paho" />
         <module name="mqtt-springboot" />
         <module name="netty" />
         <module name="poi" />
+        <module name="rmtp-server" />
+        <module name="rtmp" />
+        <module name="rtmp-server" />
         <module name="test" />
+        <module name="video" />
+        <module name="video-reader" />
         <module name="websocket" />
       </profile>
     </annotationProcessing>
@@ -30,7 +34,12 @@
       <module name="MyProject" target="1.8" />
       <module name="netty" target="1.8" />
       <module name="poi" target="1.5" />
+      <module name="rmtp-server" target="1.8" />
+      <module name="rtmp" target="1.7" />
+      <module name="rtmp-server" target="1.8" />
       <module name="test" target="1.8" />
+      <module name="video" target="1.8" />
+      <module name="video-reader" target="1.8" />
       <module name="websocket" target="1.8" />
     </bytecodeTargetLevel>
   </component>

@@ -30,6 +30,7 @@
         <module>test</module>
         <module>rtmp</module>
         <module>video-reader</module>
+        <module>rtmp-server</module>
     </modules>
     <dependencies>
 

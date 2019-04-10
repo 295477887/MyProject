@@ -14,35 +14,9 @@ import java.net.Socket;
  */
 //public class VideoReader implements CommandLineRunner {
 public class VideoReader {
-    private static final int CONTENT_SIZE = 980;
-    private static final int BODY_SIZE = 950;
+    private static final int CONTENT_SIZE = 3980;
+    private static final int BODY_SIZE = 3950;
 
-//    @Override
-    public void run1(){
-        byte [] content = new byte[CONTENT_SIZE];
-        //头信息
-        byte [] header = new byte[30];
-        fixHeader(header);
-        try{
-            FileInputStream fis = new FileInputStream("F:\\study\\rtmp\\windows\\orange.mp4");
-            byte [] buf = new byte[BODY_SIZE];
-            int length;
-            int i=0;
-            while((length = fis.read(buf)) != -1){
-
-                //包序号
-                ArraysUtils.arrayappend(header,6,Convert.intTobytes(i++,2));
-                //时间戳 ms
-                ArraysUtils.arrayappend(header,16,Convert.longTobytes(i*100,8));
-                ArraysUtils.arrayappend(content,0,header);
-                ArraysUtils.arrayappend(content,30,buf);
-                System.out.println("=="+Convert.bytesToHexString(content));
-            }
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-    }
 
     private static void fixHeader(byte [] header){
         //帧头标识
@@ -77,24 +51,24 @@ public class VideoReader {
         byte [] header = new byte[30];
         fixHeader(header);
         try{
-            Socket socket = new Socket("127.0.0.1",6666);
+            Socket socket = new Socket("127.0.0.1",20000);
             OutputStream os = socket.getOutputStream();
-            FileInputStream fis = new FileInputStream("F:\\study\\rtmp\\windows\\orange.mp4");
+            FileInputStream fis = new FileInputStream("F:\\study\\rtmp\\windows\\264\\song.264");
             byte [] buf = new byte[BODY_SIZE];
             int length;
             int i=0;
             while((length = fis.read(buf)) != -1){
-
+                System.out.println(Convert.bytesToHexString(buf));
                 //包序号
                 ArraysUtils.arrayappend(header,6,Convert.intTobytes(i++,2));
                 //时间戳 ms
                 ArraysUtils.arrayappend(header,16,Convert.longTobytes(i*100,8));
                 ArraysUtils.arrayappend(content,0,header);
                 ArraysUtils.arrayappend(content,30,buf);
-                System.out.println("=="+Convert.bytesToHexString(content));
+//                System.out.println("=="+Convert.bytesToHexString(content));
                 os.write(content);
                 os.flush();
-                Thread.sleep(100);
+                Thread.sleep(1000);
             }
         }
         catch(Exception e){
