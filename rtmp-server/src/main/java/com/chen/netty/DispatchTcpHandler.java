@@ -1,7 +1,7 @@
 package com.chen.netty;
 
 import com.chen.message.RtpMessage;
-import com.chen.rtmp.SendThread;
+import com.chen.forward.SendThread;
 import com.chen.util.Convert;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandler;

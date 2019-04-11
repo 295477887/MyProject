@@ -1,4 +1,4 @@
-package com.chen.rtmp;
+package com.chen.forward;
 
 import org.bytedeco.javacpp.avcodec;
 import org.bytedeco.javacv.FFmpegFrameGrabber;

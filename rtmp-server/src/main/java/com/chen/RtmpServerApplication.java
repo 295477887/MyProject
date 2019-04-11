@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RmtpServerApplication {
+public class RtmpServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RmtpServerApplication.class, args);
+		SpringApplication.run(RtmpServerApplication.class, args);
 	}
 
 }
