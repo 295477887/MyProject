@@ -6,7 +6,8 @@ public class RtmpServerApplicationTests {
 
 
 
-	private static final String IP = "172.16.1.86";
+//	private static final String IP = "172.16.1.86";
+	private static final String IP = "172.16.1.223";
 	private static final int PORT = 20000;
 
 
@@ -22,6 +23,10 @@ public class RtmpServerApplicationTests {
 		VideoReadThread videoReadThread6 = new VideoReadThread("F:\\study\\rtmp\\windows\\264\\640-6.264", "013800138000", 6, IP, PORT);
 		VideoReadThread videoReadThread7 = new VideoReadThread("F:\\study\\rtmp\\windows\\264\\640-7.264", "013800138000", 7, IP, PORT);
 		VideoReadThread videoReadThread8 = new VideoReadThread("F:\\study\\rtmp\\windows\\264\\640-8.264", "013800138000", 8, IP, PORT);
+		VideoReadThread videoReadThread9 = new VideoReadThread("F:\\study\\rtmp\\windows\\264\\640-9.264", "013800138000", 9, IP, PORT);
+		VideoReadThread videoReadThread10 = new VideoReadThread("F:\\study\\rtmp\\windows\\264\\640-10.264", "013800138000", 10, IP, PORT);
+		VideoReadThread videoReadThread11 = new VideoReadThread("F:\\study\\rtmp\\windows\\264\\640-11.264", "013800138000", 11, IP, PORT);
+		VideoReadThread videoReadThread12 = new VideoReadThread("F:\\study\\rtmp\\windows\\264\\640-12.264", "013800138000", 12, IP, PORT);
 
 		videoReadThread1.start();
 		videoReadThread2.start();
@@ -31,6 +36,10 @@ public class RtmpServerApplicationTests {
 		videoReadThread6.start();
 		videoReadThread7.start();
 		videoReadThread8.start();
+		videoReadThread9.start();
+		videoReadThread10.start();
+		videoReadThread11.start();
+		videoReadThread12.start();
 
 	}
 
