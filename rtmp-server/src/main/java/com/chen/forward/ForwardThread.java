@@ -1,10 +1,12 @@
 package com.chen.forward;
 
-import org.bytedeco.javacpp.avcodec;
+import com.chen.message.VideoProperty;
 import org.bytedeco.javacv.FFmpegFrameGrabber;
 import org.bytedeco.javacv.FFmpegFrameRecorder;
 import org.bytedeco.javacv.Frame;
 import org.bytedeco.javacv.FrameGrabber;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.PipedInputStream;
 
@@ -12,9 +14,21 @@ import java.io.PipedInputStream;
  * @author: ChenJie
  * @date 2019/4/10
  */
-public class SendThread extends Thread{
+public class ForwardThread extends Thread{
+    private Logger logger = LoggerFactory.getLogger(ForwardThread.class);
     //输入流, 默认缓冲区大小为1024
     private PipedInputStream in = new PipedInputStream();
+
+    private VideoProperty videoProperty ;
+    /**
+     * 真实的url
+     * */
+    private String toUrl;
+
+    public ForwardThread(String toUrl,VideoProperty videoProperty){
+        this.toUrl = toUrl;
+        this.videoProperty = videoProperty;
+    }
 
     public PipedInputStream getIn() {
         return in;
@@ -25,7 +39,6 @@ public class SendThread extends Thread{
         readMessage();
     }
     private void readMessage() {
-        byte [] buf = new byte[1024];
         try {
 
             boolean isStart=true;
@@ -37,25 +50,26 @@ public class SendThread extends Thread{
             }
 
             // 流媒体输出地址，分辨率（长，高），是否录制音频（0:不录制/1:录制）
-            FFmpegFrameRecorder recorder = new FFmpegFrameRecorder("rtmp://10.30.50.195:1935/myapp/stream5", 600, 400, 0);
-
-            recorder.setInterleaved(true);
-            recorder.setVideoCodec(avcodec.AV_CODEC_ID_H264); // 28
-            recorder.setFormat("flv"); // rtmp的类型
-            recorder.setFrameRate(25);
-            recorder.setPixelFormat(0);
+            FFmpegFrameRecorder recorder = new FFmpegFrameRecorder(toUrl, videoProperty.getWidth(), videoProperty.getHeight(), videoProperty.getAudioChannels());
+            recorder.setInterleaved(videoProperty.isInterleaved());
+            // 28
+            recorder.setVideoCodec(videoProperty.getVideoCodec());
+            // rtmp的类型
+            recorder.setFormat(videoProperty.getFormat());
+            recorder.setFrameRate(videoProperty.getFrameRate());
+            recorder.setPixelFormat(videoProperty.getPixelFormat());
 
             // 开始取视频源
             recordByFrame(grabber, recorder, isStart);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("recordFrame error, ",e);
         } finally {
         }
     }
 
 
-    private static void recordByFrame(FFmpegFrameGrabber grabber, FFmpegFrameRecorder recorder, Boolean status)
+    private void recordByFrame(FFmpegFrameGrabber grabber, FFmpegFrameRecorder recorder, Boolean status)
     {
         try {//建议在线程中使用该方法
             recorder.start();
@@ -67,7 +81,7 @@ public class SendThread extends Thread{
             grabber.stop();
         }
         catch (Exception e){
-            e.printStackTrace();
+            logger.error("recordByFrame error, ",e);
         }
         finally {
             if (grabber != null) {

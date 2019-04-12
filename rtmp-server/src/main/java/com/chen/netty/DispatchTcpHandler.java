@@ -1,7 +1,9 @@
 package com.chen.netty;
 
+import com.chen.cache.ForwardCache;
+import com.chen.forward.ForwardThread;
 import com.chen.message.RtpMessage;
-import com.chen.forward.SendThread;
+import com.chen.message.VideoProperty;
 import com.chen.util.Convert;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandler;
@@ -11,6 +13,7 @@ import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.PipedInputStream;
@@ -31,8 +34,10 @@ import java.io.PipedOutputStream;
 public class DispatchTcpHandler extends SimpleChannelInboundHandler<RtpMessage> {
 
     private static final Logger log = LoggerFactory.getLogger(DispatchTcpHandler.class);
-    PipedInputStream in ;
-    PipedOutputStream out ;
+
+    @Autowired
+    private VideoProperty videoProperty;
+
 
     /**
      * 先打开连接
@@ -44,7 +49,7 @@ public class DispatchTcpHandler extends SimpleChannelInboundHandler<RtpMessage> 
     public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
         ctx.fireChannelRegistered();
         String client = ctx.channel().remoteAddress().toString();
-            log.info("channelRegistered {}", ctx.channel().remoteAddress().toString());
+        log.info("channelRegistered {}", ctx.channel().remoteAddress().toString());
     }
 
     /**
@@ -55,15 +60,9 @@ public class DispatchTcpHandler extends SimpleChannelInboundHandler<RtpMessage> 
      */
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        SendThread sendThread = new SendThread();
-        in = sendThread.getIn();
-        out = new PipedOutputStream();
-        out.connect(in);
-        sendThread.start();
 
         ctx.fireChannelActive();
-        String client = ctx.channel().remoteAddress().toString();
-            log.info("channelActive {}", ctx.channel().remoteAddress().toString());
+        log.info("channelActive {}", ctx.channel().remoteAddress().toString());
     }
 
     /**
@@ -76,7 +75,7 @@ public class DispatchTcpHandler extends SimpleChannelInboundHandler<RtpMessage> 
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         Channel channel = ctx.channel();
         String client = channel.remoteAddress().toString();
-            log.info("channelInactive {}", client);
+        log.info("channelInactive {}", client);
         ctx.fireChannelInactive();
     }
 
@@ -119,21 +118,29 @@ public class DispatchTcpHandler extends SimpleChannelInboundHandler<RtpMessage> 
     }
 
     @Override
-    public void channelRead0(ChannelHandlerContext channelHandlerContext, RtpMessage rtpMessage){
+    public void channelRead0(ChannelHandlerContext channelHandlerContext, RtpMessage rtpMessage) {
         try {
             if (rtpMessage.getDataType() != 3 && rtpMessage.getDataType() != 4) {
-                String taskName = rtpMessage.getSimNum() + "_" + rtpMessage.getLogicChnnel();
+                String channel = rtpMessage.getSimNum() + "_" + rtpMessage.getLogicChnnel();
+                ForwardThread sendThread = ForwardCache.getInstance().getForwardThread(channel);
+                PipedOutputStream out = ForwardCache.getInstance().getOutStream(channel);
+                if (sendThread == null) {
+                    //视频流如需修改参数，在此修改
+                    String toUrl = videoProperty.getToUrlPrefix() + channel;
+                    sendThread = new ForwardThread(toUrl,videoProperty);
+                    ForwardCache.getInstance().putForwardThread(channel, sendThread);
+                    out = new PipedOutputStream();
+                    ForwardCache.getInstance().putOutStream(channel,out);
+
+                    PipedInputStream in = sendThread.getIn();
+                    out.connect(in);
+                    sendThread.start();
+                }
+                out.write(rtpMessage.getBody());
+                log.info(channel + "=发送=" + Convert.bytesToHexString(rtpMessage.getBody()));
             }
-
-            out.write(rtpMessage.getBody());
-            log.info("发送="+ Convert.bytesToHexString(rtpMessage.getBody()));
-
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("转发媒体流失败:", e);
         }
-
-
-
     }
-
 }
