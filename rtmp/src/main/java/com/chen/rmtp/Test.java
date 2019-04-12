@@ -14,17 +14,17 @@ public class Test {
     public static void main(String[] args) {
         DefaultRtmpPublisher publisher = new DefaultRtmpPublisher();
         //连接 握手
-//        publisher.connect("rtmp://172.16.1.86:1935/live/chen");
-        publisher.connect("rtmp://10.30.50.195:1935/myapp/stream5");
+//        publisher.connect("rmtp://172.16.1.86:1935/live/chen");
+        publisher.connect("rtmp://10.30.50.195:1935/myapp/stream7");
 
         //createStream
         publisher.publish("live");
 
         try {
-//            FileInputStream fis = new FileInputStream("F:\\study\\rtmp\\windows\\orange.mp4");
-            FileInputStream fis = new FileInputStream("F:\\study\\rtmp\\windows\\264\\song.264");
-            byte [] content = new byte[913];
-            byte [] buf = new byte[912];
+//            FileInputStream fis = new FileInputStream("F:\\study\\rmtp\\windows\\orange.mp4");
+            FileInputStream fis = new FileInputStream("F:\\study\\rtmp\\windows\\264\\640-1.264");
+            byte [] content = new byte[9913];
+            byte [] buf = new byte[9912];
             int len;
             int frameId = 1;
             while((len = fis.read(buf)) != -1){

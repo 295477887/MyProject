@@ -79,7 +79,7 @@ public class RtpPacketHandler extends SimpleChannelInboundHandler<RtpMessage> {
             PipedInputStream pis = new PipedInputStream(1000);
             pis.connect(pos);
             FFmpegFrameGrabber grabber = new FFmpegFrameGrabber(pis);
-            FFmpegFrameRecorder recorder = new FFmpegFrameRecorder("rtmp://10.30.50.195:1935/myapp/stream5", 352,288,0);
+            FFmpegFrameRecorder recorder = new FFmpegFrameRecorder("rmtp://10.30.50.195:1935/myapp/stream5", 352,288,0);
             grabber.start();
 
             recorder.setInterleaved(true);

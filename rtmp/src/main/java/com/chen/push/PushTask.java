@@ -36,12 +36,12 @@ public class PushTask extends Thread {
             grabber = new FFmpegFrameGrabber(is);
             grabber.start();
 
-//            recorder = new FFmpegFrameRecorder("rtmp://127.0.0.1/live/" + name, 352,288,0);
-            recorder = new FFmpegFrameRecorder("rtmp://10.30.50.195:1935/myapp/stream5", 352,288,0);
-//            recorder = new FFmpegFrameRecorder("rtmp://172.16.1.86:1935/live/chen", 352,288,0);
+//            recorder = new FFmpegFrameRecorder("rmtp://127.0.0.1/live/" + name, 352,288,0);
+            recorder = new FFmpegFrameRecorder("rmtp://10.30.50.195:1935/myapp/stream5", 352,288,0);
+//            recorder = new FFmpegFrameRecorder("rmtp://172.16.1.86:1935/live/chen", 352,288,0);
             recorder.setInterleaved(true);
             recorder.setVideoCodec(avcodec.AV_CODEC_ID_H264); // 28
-            recorder.setFormat("flv"); // rtmp???
+            recorder.setFormat("flv"); // rmtp???
             recorder.setFrameRate(25);
             recorder.setPixelFormat(0); // yuv420p
 

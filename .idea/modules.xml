@@ -10,8 +10,9 @@
       <module fileurl="file://$PROJECT_DIR$/mqtt-springboot/mqtt-springboot.iml" filepath="$PROJECT_DIR$/mqtt-springboot/mqtt-springboot.iml" />
       <module fileurl="file://$PROJECT_DIR$/netty/netty.iml" filepath="$PROJECT_DIR$/netty/netty.iml" />
       <module fileurl="file://$PROJECT_DIR$/poi/poi.iml" filepath="$PROJECT_DIR$/poi/poi.iml" />
+      <module fileurl="file://E:\idea-space\MyProject\rtmp-server\rmtp-server.iml" filepath="E:\idea-space\MyProject\rtmp-server\rmtp-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/rtmp/rtmp.iml" filepath="$PROJECT_DIR$/rtmp/rtmp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/rtmp-server/rmtp-server.iml" filepath="$PROJECT_DIR$/rtmp-server/rmtp-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rtmp-server/rtmp-server.iml" filepath="$PROJECT_DIR$/rtmp-server/rtmp-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/test/test.iml" filepath="$PROJECT_DIR$/test/test.iml" />
       <module fileurl="file://$PROJECT_DIR$/video-reader/video-reader.iml" filepath="$PROJECT_DIR$/video-reader/video-reader.iml" />
       <module fileurl="file://$PROJECT_DIR$/websocket/websocket.iml" filepath="$PROJECT_DIR$/websocket/websocket.iml" />

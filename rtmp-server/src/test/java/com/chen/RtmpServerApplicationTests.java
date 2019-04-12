@@ -14,14 +14,23 @@ public class RtmpServerApplicationTests {
 
 	public static void main(String[] args) {
 		System.out.println("---------------------------");
-		VideoReadThread videoReadThread1 = new VideoReadThread("F:\\study\\rtmp\\windows\\264\\song.264", "013800138000", 1, IP, PORT);
-		VideoReadThread videoReadThread2 = new VideoReadThread("F:\\study\\rtmp\\windows\\264\\sample.176x144.h264", "013800138000", 2, IP, PORT);
-		VideoReadThread videoReadThread3 = new VideoReadThread("F:\\study\\rtmp\\windows\\264\\sample.176x144.h264", "013800138000", 3, IP, PORT);
-		VideoReadThread videoReadThread4 = new VideoReadThread("F:\\study\\rtmp\\windows\\264\\song.264", "013800138000", 4, IP, PORT);
+		VideoReadThread videoReadThread1 = new VideoReadThread("F:\\study\\rtmp\\windows\\264\\640-1.264", "013800138000", 1, IP, PORT);
+		VideoReadThread videoReadThread2 = new VideoReadThread("F:\\study\\rtmp\\windows\\264\\640-2.264", "013800138000", 2, IP, PORT);
+		VideoReadThread videoReadThread3 = new VideoReadThread("F:\\study\\rtmp\\windows\\264\\640-3.264", "013800138000", 3, IP, PORT);
+		VideoReadThread videoReadThread4 = new VideoReadThread("F:\\study\\rtmp\\windows\\264\\640-4.264", "013800138000", 4, IP, PORT);
+		VideoReadThread videoReadThread5 = new VideoReadThread("F:\\study\\rtmp\\windows\\264\\640-5.264", "013800138000", 5, IP, PORT);
+		VideoReadThread videoReadThread6 = new VideoReadThread("F:\\study\\rtmp\\windows\\264\\640-6.264", "013800138000", 6, IP, PORT);
+		VideoReadThread videoReadThread7 = new VideoReadThread("F:\\study\\rtmp\\windows\\264\\640-7.264", "013800138000", 7, IP, PORT);
+		VideoReadThread videoReadThread8 = new VideoReadThread("F:\\study\\rtmp\\windows\\264\\640-8.264", "013800138000", 8, IP, PORT);
+
 		videoReadThread1.start();
 		videoReadThread2.start();
 		videoReadThread3.start();
 		videoReadThread4.start();
+		videoReadThread5.start();
+		videoReadThread6.start();
+		videoReadThread7.start();
+		videoReadThread8.start();
 
 	}
 

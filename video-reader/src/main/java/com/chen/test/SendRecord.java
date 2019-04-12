@@ -12,7 +12,7 @@ public class SendRecord {
             throws Exception {
 
 //        String inputFile = "F:\\study\\rtmp\\windows\\orange.mp4";
-        String inputFile = "F:\\study\\rtmp\\windows\\264\\orange.264";
+        String inputFile = "F:\\study\\rtmp\\windows\\264\\320.264";
 //
         String outputFile = "rtmp://10.30.50.195:1935/myapp/stream5";
 
@@ -41,7 +41,7 @@ public class SendRecord {
         // 获取视频源
         FFmpegFrameGrabber grabber = new FFmpegFrameGrabber(inputFile);
         // 流媒体输出地址，分辨率（长，高），是否录制音频（0:不录制/1:录制）
-        FFmpegFrameRecorder recorder = new FFmpegFrameRecorder(outputFile, 400, 300, audioChannel);
+        FFmpegFrameRecorder recorder = new FFmpegFrameRecorder(outputFile, 1280, 720, audioChannel);
 
         recorder.setInterleaved(true);
         recorder.setVideoCodec(avcodec.AV_CODEC_ID_H264); // 28

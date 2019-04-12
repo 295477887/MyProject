@@ -13,8 +13,9 @@ import java.net.Socket;
  * @date 2019/4/11
  */
 public class VideoReadThread extends Thread{
-    private static final int CONTENT_SIZE = 980;
-    private static final int BODY_SIZE = 950;
+    private static final int CONTENT_SIZE = 9980;
+    private static final int BODY_SIZE = 9950;
+    private int interval = 100;
     private String fileName;
     private String tid;
     private int channelId;
@@ -54,7 +55,7 @@ public class VideoReadThread extends Thread{
 //                System.out.println("=="+Convert.bytesToHexString(content));
                 os.write(content);
                 os.flush();
-                Thread.sleep(100);
+                Thread.sleep(interval);
             }
         }
         catch(Exception e){

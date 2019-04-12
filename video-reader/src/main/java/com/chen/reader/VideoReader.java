@@ -53,7 +53,7 @@ public class VideoReader {
         try{
             Socket socket = new Socket("127.0.0.1",20000);
             OutputStream os = socket.getOutputStream();
-            FileInputStream fis = new FileInputStream("F:\\study\\rtmp\\windows\\264\\song.264");
+            FileInputStream fis = new FileInputStream("F:\\study\\rtmp\\windows\\264\\320.264");
             byte [] buf = new byte[BODY_SIZE];
             int length;
             int i=0;
@@ -68,7 +68,7 @@ public class VideoReader {
 //                System.out.println("=="+Convert.bytesToHexString(content));
                 os.write(content);
                 os.flush();
-                Thread.sleep(200);
+                Thread.sleep(100);
             }
         }
         catch(Exception e){
