@@ -6,7 +6,7 @@ package com.chen.rmtp.packet;
 
 import com.chen.rmtp.io.ChunkStreamInfo;
 import com.chen.rmtp.io.RtmpSessionInfo;
-import com.chen.util.Util;
+import com.navinfo.util.Util;
 
 import java.io.EOFException;
 import java.io.IOException;

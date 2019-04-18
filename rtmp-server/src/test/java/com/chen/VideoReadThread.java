@@ -1,8 +1,8 @@
 package com.chen;
 
-import com.chen.util.ArraysUtils;
-import com.chen.util.Constants;
-import com.chen.util.Convert;
+import com.navinfo.util.ArraysUtils;
+import com.navinfo.util.Constants;
+import com.navinfo.util.Convert;
 
 import java.io.FileInputStream;
 import java.io.OutputStream;
@@ -13,8 +13,8 @@ import java.net.Socket;
  * @date 2019/4/11
  */
 public class VideoReadThread extends Thread{
-    private static final int CONTENT_SIZE = 9980;
-    private static final int BODY_SIZE = 9950;
+    private static final int CONTENT_SIZE = 980;
+    private static final int BODY_SIZE = 950;
     private int interval = 100;
     private String fileName;
     private String tid;
@@ -45,7 +45,7 @@ public class VideoReadThread extends Thread{
             int length;
             int i=0;
             while((length = fis.read(buf)) != -1){
-                System.out.println(Convert.bytesToHexString(buf));
+                System.out.println("发送=="+Convert.bytesToHexString(buf)+"==!");
                 //包序号
                 ArraysUtils.arrayappend(header,6,Convert.intTobytes(i++,2));
                 //时间戳 ms

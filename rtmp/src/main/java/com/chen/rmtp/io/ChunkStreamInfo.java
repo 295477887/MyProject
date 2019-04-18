@@ -2,7 +2,7 @@ package com.chen.rmtp.io;
 
 
 import com.chen.rmtp.packet.RtmpHeader;
-import com.chen.util.Util;
+import com.navinfo.util.Util;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

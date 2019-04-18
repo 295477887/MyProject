@@ -1,7 +1,7 @@
 package com.chen.rmtp;
 
-import com.chen.util.ArraysUtils;
-import com.chen.util.Convert;
+import com.navinfo.util.ArraysUtils;
+import com.navinfo.util.Convert;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

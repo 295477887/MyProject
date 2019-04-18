@@ -1,6 +1,6 @@
 package com.chen.handler;
 
-import com.chen.message.RtpMessage;
+import com.navinfo.message.RtpMessage;
 import com.chen.push.PushManager;
 import com.chen.push.PushTask;
 import io.netty.channel.ChannelHandlerContext;

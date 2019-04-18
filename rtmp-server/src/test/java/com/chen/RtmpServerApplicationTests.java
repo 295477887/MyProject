@@ -6,8 +6,9 @@ public class RtmpServerApplicationTests {
 
 
 
-//	private static final String IP = "172.16.1.86";
-	private static final String IP = "172.16.1.223";
+	private static final String IP = "172.16.1.86";
+//	private static final String IP = "59.46.97.115";
+//	private static final String IP = "172.16.1.223";
 	private static final int PORT = 20000;
 
 
@@ -15,7 +16,8 @@ public class RtmpServerApplicationTests {
 
 	public static void main(String[] args) {
 		System.out.println("---------------------------");
-		VideoReadThread videoReadThread1 = new VideoReadThread("F:\\study\\rtmp\\windows\\264\\640-1.264", "013800138000", 1, IP, PORT);
+		VideoReadThread videoReadThread1 = new VideoReadThread("F:\\study\\rtmp\\windows\\1078\\mini.txt", "013800138000", 1, IP, PORT);
+//		VideoReadThread videoReadThread1 = new VideoReadThread("F:\\study\\rtmp\\windows\\264\\640-1.264", "013800138000", 1, IP, PORT);
 		VideoReadThread videoReadThread2 = new VideoReadThread("F:\\study\\rtmp\\windows\\264\\640-2.264", "013800138000", 2, IP, PORT);
 		VideoReadThread videoReadThread3 = new VideoReadThread("F:\\study\\rtmp\\windows\\264\\640-3.264", "013800138000", 3, IP, PORT);
 		VideoReadThread videoReadThread4 = new VideoReadThread("F:\\study\\rtmp\\windows\\264\\640-4.264", "013800138000", 4, IP, PORT);
@@ -29,17 +31,17 @@ public class RtmpServerApplicationTests {
 		VideoReadThread videoReadThread12 = new VideoReadThread("F:\\study\\rtmp\\windows\\264\\640-12.264", "013800138000", 12, IP, PORT);
 
 		videoReadThread1.start();
-		videoReadThread2.start();
-		videoReadThread3.start();
-		videoReadThread4.start();
-		videoReadThread5.start();
-		videoReadThread6.start();
-		videoReadThread7.start();
-		videoReadThread8.start();
-		videoReadThread9.start();
-		videoReadThread10.start();
-		videoReadThread11.start();
-		videoReadThread12.start();
+//		videoReadThread2.start();
+//		videoReadThread3.start();
+//		videoReadThread4.start();
+//		videoReadThread5.start();
+//		videoReadThread6.start();
+//		videoReadThread7.start();
+//		videoReadThread8.start();
+//		videoReadThread9.start();
+//		videoReadThread10.start();
+//		videoReadThread11.start();
+//		videoReadThread12.start();
 
 	}
 

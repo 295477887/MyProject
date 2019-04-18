@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.chen</groupId>
-	<artifactId>rmtp-server</artifactId>
+	<artifactId>rtmp-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>rtmp-server</name>
 	<description>Demo project for Spring Boot</description>
@@ -110,13 +110,23 @@
 			<artifactId>commons-codec</artifactId>
 			<version>20041127.091804</version>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.39</version>
+        </dependency>
+    </dependencies>
 
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<layout>JAR</layout>
+					<classifier>boot</classifier>
+					<mainClass>com.navinfo.RtmpServerApplication</mainClass>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

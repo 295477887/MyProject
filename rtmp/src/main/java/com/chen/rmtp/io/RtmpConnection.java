@@ -5,8 +5,8 @@ import com.chen.rmtp.amf.*;
 import com.chen.rmtp.ossrs.ConnectCheckerRtmp;
 import com.chen.rmtp.ossrs.CreateSSLSocket;
 import com.chen.rmtp.packet.*;
-import com.chen.util.Log;
-import com.chen.util.Util;
+import com.navinfo.util.Log;
+import com.navinfo.util.Util;
 
 import java.io.*;
 import java.net.InetSocketAddress;

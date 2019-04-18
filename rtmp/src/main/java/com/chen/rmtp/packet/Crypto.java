@@ -1,7 +1,7 @@
 package com.chen.rmtp.packet;
 
 
-import com.chen.util.Log;
+import com.navinfo.util.Log;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;

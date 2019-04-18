@@ -2,7 +2,7 @@ package com.chen.rmtp.packet;
 
 
 import com.chen.rmtp.io.ChunkStreamInfo;
-import com.chen.util.Util;
+import com.navinfo.util.Util;
 
 import java.io.IOException;
 import java.io.InputStream;

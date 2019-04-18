@@ -1,8 +1,8 @@
 package com.chen.reader;
 
-import com.chen.util.ArraysUtils;
-import com.chen.util.Constants;
-import com.chen.util.Convert;
+import com.navinfo.util.ArraysUtils;
+import com.navinfo.util.Constants;
+import com.navinfo.util.Convert;
 
 import java.io.FileInputStream;
 import java.io.OutputStream;
