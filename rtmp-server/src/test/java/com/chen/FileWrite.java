@@ -3,20 +3,18 @@ package com.chen;
 import com.navinfo.util.Convert;
 
 import java.io.*;
-import java.net.Socket;
 
 /**
  * @author: ChenJie
  * @date 2019/4/16
  */
-public class FileRead {
+public class FileWrite {
     public static void main(String[] args) {
         try {
-            Socket socket = new Socket("127.0.0.1",20000);
-            OutputStream os = socket.getOutputStream();
+            File file = new File("F:\\study\\rtmp\\windows\\264\\1078.264");
+            FileOutputStream fos = new FileOutputStream(file);
 
-//            FileReader reader = new FileReader("F:\\study\\rtmp\\windows\\1078\\041902-2.txt");
-            FileReader reader = new FileReader("D:\\Program Files (x86)\\SecureCRT\\download\\2.txt");
+            FileReader reader = new FileReader("F:\\study\\rtmp\\windows\\1078\\mini2.txt");
             BufferedReader br = new BufferedReader(reader);
             String line = "";
             int i = 0;
@@ -25,10 +23,9 @@ public class FileRead {
                     line = line.substring(1);
                 }
                 System.out.println("line="+line);
-                os.write(Convert.hexStringToBytes(line.trim()));
-                os.flush();
+                fos.write(Convert.hexStringToBytes(line.trim().substring(60)));
                 i++;
-                Thread.sleep(100);
+                Thread.sleep(10);
             }
 
         } catch (FileNotFoundException e) {

@@ -21,12 +21,16 @@ public class RtpMessageDecoder1078 extends ByteToMessageDecoder {
     /**
      * RTP 封包头部最大长度，视频帧长度为30，其他为18
      */
-    private static final int MIN_HEADER_LENGTH = 18;
+    private static final int MIN_HEADER_LENGTH = 30;
     /**
      * 包头
      * */
     private static final byte[] HEADER = new byte[]{0x30,0x31,0x63,0x64};
 
+    public static void main(String[] args) {
+
+        System.out.println(ArraysUtils.subarrays(HEADER,6,2));
+    }
 
 
     @Override
@@ -34,7 +38,6 @@ public class RtpMessageDecoder1078 extends ByteToMessageDecoder {
         if (in != null && in.writerIndex() > in.readerIndex()) {
             String channelKey = channelHandlerContext.channel().remoteAddress().toString();
             byte[] startPacker = DataPacketCache.getInstance().get(channelKey);
-            RtpMessage msg = new RtpMessage();
             byte[] bytes = new byte[in.writerIndex() - in.readerIndex()];
             in.readBytes(bytes);
             logger.info("收到原始数据:"+Convert.bytesToHexString(bytes));
@@ -47,11 +50,16 @@ public class RtpMessageDecoder1078 extends ByteToMessageDecoder {
             }
             else{
                 while(bytes.length > HEADER.length){
+                    RtpMessage msg = new RtpMessage();
+
                     //截取包头
                     byte [] head= ArraysUtils.subarrays(bytes,0,HEADER.length);
 
                     if(Arrays.equals(HEADER, head)){
-
+                        if(bytes.length < MIN_HEADER_LENGTH){
+                            DataPacketCache.getInstance().add(channelKey,bytes);
+                            break;
+                        }
                         int seq = Convert.byte2Int(ArraysUtils.subarrays(bytes,6,2),2);
                         msg.setSeq(seq);
                         String sim = Convert.bytesToHexString(ArraysUtils.subarrays(bytes,8,6));

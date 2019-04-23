@@ -168,8 +168,35 @@ public class DispatchTcpHandler extends SimpleChannelInboundHandler<RtpMessage> 
                     out.connect(in);
                     sendThread.start();
                 }
-                out.write(rtpMessage.getBody());
-                log.info(channel + "=发送=" + Convert.bytesToHexString(rtpMessage.getBody()));
+
+                //判断sps、pps
+                //sps、pps帧的时候先缓存起来，
+                //待到取出 I 帧时先将前面缓存的 sps、pps发送出去，然后再将I帧发送出去，
+                byte [] body = rtpMessage.getBody();
+                int frameFlag = Convert.byte2Int(ArraysUtils.subarrays(body,4,1),1);
+                //SPS
+                if(frameFlag == 0x67){
+                    byte [] sps = ArraysUtils.subarrays(body,0,18);
+                    out.write(sps);
+                    log.info(channel + "=发送sps=" + Convert.bytesToHexString(sps));
+
+                    byte [] pps = ArraysUtils.subarrays(body,18,8);
+                    out.write(pps);
+                    log.info(channel + "=发送pps=" + Convert.bytesToHexString(pps));
+
+                    byte [] iFrame = ArraysUtils.subarrays(body,26);
+                    out.write(iFrame);
+                    log.info(channel + "=发送I帧=" + Convert.bytesToHexString(iFrame));
+
+                }
+                else if(frameFlag == 0x41){
+                    out.write(body);
+                    log.info(channel + "=发送P帧=" + Convert.bytesToHexString(body));
+
+                }
+
+//                out.write(rtpMessage.getBody());
+//                log.info(channel + "=发送=" + Convert.bytesToHexString(rtpMessage.getBody()));
             }
         } catch (Exception e) {
             log.error("转发媒体流失败:", e);
