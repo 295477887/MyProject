@@ -27,11 +27,6 @@ public class RtpMessageDecoder1078 extends ByteToMessageDecoder {
      * */
     private static final byte[] HEADER = new byte[]{0x30,0x31,0x63,0x64};
 
-    public static void main(String[] args) {
-
-        System.out.println(ArraysUtils.subarrays(HEADER,6,2));
-    }
-
 
     @Override
     protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf in, List<Object> out) throws Exception {
@@ -103,7 +98,7 @@ public class RtpMessageDecoder1078 extends ByteToMessageDecoder {
 
                         byte [] body = ArraysUtils.subarrays(bytes,index,bodyLen);
                         msg.setBody(body);
-                        logger.error("拆包报文:" + Convert.bytesToHexString(ArraysUtils.subarrays(bytes,0,bodyLen+index)));
+                        logger.info("拆包报文:" + Convert.bytesToHexString(ArraysUtils.subarrays(bytes,0,bodyLen+index)));
                         //剩余报文
                         bytes = ArraysUtils.subarrays(bytes, index + bodyLen);
                         out.add(msg);

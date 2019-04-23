@@ -176,13 +176,17 @@ public class DispatchTcpHandler extends SimpleChannelInboundHandler<RtpMessage> 
                 int frameFlag = Convert.byte2Int(ArraysUtils.subarrays(body,4,1),1);
                 //SPS
                 if(frameFlag == 0x67){
-                    byte [] sps = ArraysUtils.subarrays(body,0,18);
-                    out.write(sps);
-                    log.info(channel + "=发送sps=" + Convert.bytesToHexString(sps));
+//                    byte [] sps = ArraysUtils.subarrays(body,0,18);
+//                    out.write(sps);
+//                    log.info(channel + "=发送sps=" + Convert.bytesToHexString(sps));
+//
+//                    byte [] pps = ArraysUtils.subarrays(body,18,8);
+//                    out.write(pps);
+//                    log.info(channel + "=发送pps=" + Convert.bytesToHexString(pps));
 
-                    byte [] pps = ArraysUtils.subarrays(body,18,8);
-                    out.write(pps);
-                    log.info(channel + "=发送pps=" + Convert.bytesToHexString(pps));
+                    byte [] spspps = ArraysUtils.subarrays(body,0,26);
+                    out.write(spspps);
+                    log.info(channel + "=发送spspps=" + Convert.bytesToHexString(spspps));
 
                     byte [] iFrame = ArraysUtils.subarrays(body,26);
                     out.write(iFrame);

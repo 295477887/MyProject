@@ -12,11 +12,12 @@ import java.net.Socket;
 public class FileRead {
     public static void main(String[] args) {
         try {
-            Socket socket = new Socket("127.0.0.1",20000);
+//            Socket socket = new Socket("127.0.0.1",20000);
+            Socket socket = new Socket("10.30.50.146",20000);
             OutputStream os = socket.getOutputStream();
 
 //            FileReader reader = new FileReader("F:\\study\\rtmp\\windows\\1078\\041902-2.txt");
-            FileReader reader = new FileReader("D:\\Program Files (x86)\\SecureCRT\\download\\2.txt");
+            FileReader reader = new FileReader("D:\\Program Files (x86)\\SecureCRT\\download\\origin.log");
             BufferedReader br = new BufferedReader(reader);
             String line = "";
             int i = 0;
