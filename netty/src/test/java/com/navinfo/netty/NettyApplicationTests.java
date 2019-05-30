@@ -1,4 +1,4 @@
-package com.chen.netty;
+package com.navinfo.netty;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

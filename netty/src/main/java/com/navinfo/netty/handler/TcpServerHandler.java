@@ -1,4 +1,4 @@
-package com.chen.netty.handler;
+package com.navinfo.netty.handler;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;

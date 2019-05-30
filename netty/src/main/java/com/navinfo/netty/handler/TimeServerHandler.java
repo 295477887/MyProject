@@ -1,4 +1,4 @@
-package com.chen.netty.handler;
+package com.navinfo.netty.handler;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;

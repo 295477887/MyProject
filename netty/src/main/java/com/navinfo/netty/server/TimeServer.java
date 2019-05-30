@@ -1,6 +1,6 @@
-package com.chen.netty.server;
+package com.navinfo.netty.server;
 
-import com.chen.netty.handler.TimeServerHandler;
+import com.navinfo.netty.handler.TimeServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;

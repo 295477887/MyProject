@@ -1,4 +1,4 @@
-package com.chen.util;
+package com.navinfo.util;
 
 import com.alibaba.fastjson.JSON;
 import com.chen.pojo.CourseRate;

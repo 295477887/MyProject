@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyProject.iml" filepath="$PROJECT_DIR$/MyProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/api-doc/api-doc.iml" filepath="$PROJECT_DIR$/api-doc/api-doc.iml" />
       <module fileurl="file://$PROJECT_DIR$/fastdfs/fastdfs.iml" filepath="$PROJECT_DIR$/fastdfs/fastdfs.iml" />
       <module fileurl="file://$PROJECT_DIR$/kafka/kafka.iml" filepath="$PROJECT_DIR$/kafka/kafka.iml" />
       <module fileurl="file://$PROJECT_DIR$/lambda/lambda.iml" filepath="$PROJECT_DIR$/lambda/lambda.iml" />
@@ -14,6 +15,7 @@
       <module fileurl="file://$PROJECT_DIR$/rtmp/rtmp.iml" filepath="$PROJECT_DIR$/rtmp/rtmp.iml" />
       <module fileurl="file://$PROJECT_DIR$/rtmp-server/rtmp-server.iml" filepath="$PROJECT_DIR$/rtmp-server/rtmp-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/test/test.iml" filepath="$PROJECT_DIR$/test/test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/video/video.iml" filepath="$PROJECT_DIR$/video/video.iml" />
       <module fileurl="file://$PROJECT_DIR$/video-reader/video-reader.iml" filepath="$PROJECT_DIR$/video-reader/video-reader.iml" />
       <module fileurl="file://$PROJECT_DIR$/websocket/websocket.iml" filepath="$PROJECT_DIR$/websocket/websocket.iml" />
     </modules>

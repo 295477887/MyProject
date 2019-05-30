@@ -31,6 +31,7 @@
         <module>rtmp</module>
         <module>video-reader</module>
         <module>rtmp-server</module>
+        <module>api-doc</module>
     </modules>
     <dependencies>
 

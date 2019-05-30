@@ -1,6 +1,6 @@
-package com.chen.netty.client;
+package com.navinfo.netty.client;
 
-import com.chen.netty.handler.TcpClientHandler;
+import com.navinfo.netty.handler.TcpClientHandler;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
