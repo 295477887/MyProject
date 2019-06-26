@@ -15,7 +15,7 @@ import java.net.Socket;
 public class VideoReadThread extends Thread{
     private static final int CONTENT_SIZE = 980;
     private static final int BODY_SIZE = 950;
-    private int interval = 100;
+    private int interval = 10;
     private String fileName;
     private String tid;
     private int channelId;
@@ -45,14 +45,14 @@ public class VideoReadThread extends Thread{
             int length;
             int i=0;
             while((length = fis.read(buf)) != -1){
-                System.out.println("发送=="+Convert.bytesToHexString(buf)+"==!");
+//                System.out.println("发送=="+Convert.bytesToHexString(buf)+"==!");
                 //包序号
                 ArraysUtils.arrayappend(header,6,Convert.intTobytes(i++,2));
                 //时间戳 ms
                 ArraysUtils.arrayappend(header,16,Convert.longTobytes(i*100,8));
                 ArraysUtils.arrayappend(content,0,header);
                 ArraysUtils.arrayappend(content,30,buf);
-//                System.out.println("=="+Convert.bytesToHexString(content));
+                System.out.println("=="+Convert.bytesToHexString(content));
                 os.write(content);
                 os.flush();
                 Thread.sleep(interval);

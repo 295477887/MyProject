@@ -15,6 +15,7 @@
         <option value="$PROJECT_DIR$/video/pom.xml" />
         <option value="$PROJECT_DIR$/rmtp-server/pom.xml" />
         <option value="$PROJECT_DIR$/api-doc/pom.xml" />
+        <option value="$PROJECT_DIR$/bigdata/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
