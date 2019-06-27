@@ -102,8 +102,8 @@ public class HttpUtil {
 
     @Test
     public void testGet() throws Exception {
-
-        for(int i=22;i<5000;i++){
+        //532-548
+        for(int i=474;i<1000;i++){
             try{
                 String result = doGet("https://www.okfree.men/file-"+ i +".html",null);
                 int begin = result.indexOf("soundFile: \"");
@@ -118,11 +118,13 @@ public class HttpUtil {
                     doDownload(durl,"D:\\download\\" + name);
                 }
                 else{
+
                     System.out.println(i+"出现异常");
                 }
                 Thread.sleep(2000);
             }catch(Exception e){
                 System.out.println(i+"出现异常异常异常");
+                e.printStackTrace();
             }
 
         }
