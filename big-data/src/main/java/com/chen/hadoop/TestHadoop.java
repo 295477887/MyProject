@@ -1,4 +1,4 @@
-package com.chen.test;
+package com.chen.hadoop;
 
 import org.apache.commons.compress.utils.IOUtils;
 import org.apache.hadoop.conf.Configuration;

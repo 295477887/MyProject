@@ -3,6 +3,7 @@
   <component name="Encoding" native2AsciiForPropertiesFiles="true">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/api-doc" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/big-data" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/bigdata" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/fastdfs" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/kafka" charset="UTF-8" />

@@ -7,7 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="api-doc" />
-        <module name="bigdata" />
+        <module name="big-data" />
         <module name="fastdfs" />
         <module name="kafka" />
         <module name="lambda" />
@@ -27,6 +27,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="api-doc" target="1.8" />
+      <module name="big-data" target="1.8" />
       <module name="bigdata" target="1.8" />
       <module name="fastdfs" target="1.8" />
       <module name="kafka" target="1.8" />

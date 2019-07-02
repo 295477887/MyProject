@@ -166,11 +166,9 @@ public class HttpUtil {
 
     public static void main(String[] args) {
 
-        DownloadThread thread1 = new DownloadThread(1,1047,1500);
-        DownloadThread thread2 = new DownloadThread(2,1501,2000);
-        DownloadThread thread3 = new DownloadThread(3,2001,2500);
-        DownloadThread thread4 = new DownloadThread(4,2501,3000);
-        DownloadThread thread5 = new DownloadThread(5,3001,3500);
+        DownloadThread thread1 = new DownloadThread(1,3244,3500);
+        DownloadThread thread2 = new DownloadThread(2,3928,4300);
+        DownloadThread thread3 = new DownloadThread(3,4301,4600);
         thread1.start();
         thread2.start();
         thread3.start();
