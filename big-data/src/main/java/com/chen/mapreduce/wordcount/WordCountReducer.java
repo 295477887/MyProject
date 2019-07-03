@@ -1,4 +1,4 @@
-package com.chen.mapreduce;
+package com.chen.mapreduce.wordcount;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
