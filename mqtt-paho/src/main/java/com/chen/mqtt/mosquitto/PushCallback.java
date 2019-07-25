@@ -44,8 +44,8 @@ public class PushCallback implements MqttCallback{
 
     @Override
     public void deliveryComplete(IMqttDeliveryToken token) {
-        System.out.println("分发完成---------" + token.isComplete());
-        System.out.println(LocalDateTime.now());
+//        System.out.println("分发完成---------" + token.isComplete());
+//        System.out.println(LocalDateTime.now());
 
     }
 
