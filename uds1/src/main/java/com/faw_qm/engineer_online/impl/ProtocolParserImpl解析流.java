@@ -12,9 +12,8 @@ import com.faw_qm.engineer_online.define.protcl.ProtclTypeEnum;
 import com.faw_qm.engineer_online.exception.InitException;
 import com.faw_qm.engineer_online.exception.ProtclParseException;
 import com.faw_qm.engineer_online.exception.ReadFileException;
-import com.faw_qm.engineer_online.impl.EcuConfigFactory;
-import com.faw_qm.engineer_online.impl.SqlliteParser;
 import com.faw_qm.engineer_online.util.EnumUtil;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,18 +25,18 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-public class ProtocolParserImpl implements ProtocolParser {
-    private static ProtocolParserImpl instance;
+public class ProtocolParserImpl解析流 implements ProtocolParser {
+    private static ProtocolParserImpl解析流 instance;
     private String filePath;
-    private String dbFilePath;
+    private static String dbFilePath;
     private EcuConfig ecuConfig;
 
-//    private ProtocolParserImpl() {
-//    }
+    private ProtocolParserImpl解析流() {
+    }
 
-    public static ProtocolParserImpl getInstance() {
+    public static ProtocolParserImpl解析流 getInstance() {
         if(instance == null) {
-            instance = new ProtocolParserImpl();
+            instance = new ProtocolParserImpl解析流();
         }
 
         new EnumUtil();
@@ -70,7 +69,7 @@ public class ProtocolParserImpl implements ProtocolParser {
         }
     }
 
-    public List Parser_PMsg2SignalAry(List cStructs, String[] strInfos) throws ProtclParseException {
+    public static List Parser_PMsg2SignalAry(List cStructs, String[] strInfos) throws ProtclParseException {
         ArrayList itemAry_parsed = new ArrayList();
         SigNal item_Temp = null;
         SigNal prv_item_Temp = null;
@@ -491,7 +490,7 @@ public class ProtocolParserImpl implements ProtocolParser {
         return list;
     }
 
-    private  SigNal GetDtcByFMI_SPN(String strProtocolCode, String strFMI, String strSPN) throws ProtclParseException {
+    private static SigNal GetDtcByFMI_SPN(String strProtocolCode, String strFMI, String strSPN) throws ProtclParseException {
         Object[] params = new Object[0];
         SigNal sigNal = null;
 
@@ -522,7 +521,7 @@ public class ProtocolParserImpl implements ProtocolParser {
         }
     }
 
-    private  SigNal GetDtcByCode(String strProtocolCode, String Code) throws ProtclParseException {
+    private static SigNal GetDtcByCode(String strProtocolCode, String Code) throws ProtclParseException {
         Object[] params = new Object[0];
         SigNal sigNal = null;
 
@@ -547,7 +546,7 @@ public class ProtocolParserImpl implements ProtocolParser {
         }
     }
 
-    public  List ParseService(String protocolCode, String code, String[] Content, int iLoop, String[] strInfos, String[] requests) throws ProtclParseException {
+    public static List ParseService(String protocolCode, String code, String[] Content, int iLoop, String[] strInfos, String[] requests) throws ProtclParseException {
         String value = "";
         ArrayList sigNals = new ArrayList();
 
