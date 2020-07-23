@@ -4,10 +4,12 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyProject.iml" filepath="$PROJECT_DIR$/MyProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/api-doc/api-doc.iml" filepath="$PROJECT_DIR$/api-doc/api-doc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baidu/baidu.iml" filepath="$PROJECT_DIR$/baidu/baidu.iml" />
       <module fileurl="file://$PROJECT_DIR$/big-data/big-data.iml" filepath="$PROJECT_DIR$/big-data/big-data.iml" />
       <module fileurl="file://$PROJECT_DIR$/fastdfs/fastdfs.iml" filepath="$PROJECT_DIR$/fastdfs/fastdfs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jdk8/jdk8.iml" filepath="$PROJECT_DIR$/jdk8/jdk8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jni/jni.iml" filepath="$PROJECT_DIR$/jni/jni.iml" />
       <module fileurl="file://$PROJECT_DIR$/kafka/kafka.iml" filepath="$PROJECT_DIR$/kafka/kafka.iml" />
-      <module fileurl="file://$PROJECT_DIR$/lambda/lambda.iml" filepath="$PROJECT_DIR$/lambda/lambda.iml" />
       <module fileurl="file://$PROJECT_DIR$/mqtt-paho/mqtt-paho.iml" filepath="$PROJECT_DIR$/mqtt-paho/mqtt-paho.iml" />
       <module fileurl="file://$PROJECT_DIR$/mqtt-springboot/mqtt-springboot.iml" filepath="$PROJECT_DIR$/mqtt-springboot/mqtt-springboot.iml" />
       <module fileurl="file://$PROJECT_DIR$/netty/netty.iml" filepath="$PROJECT_DIR$/netty/netty.iml" />
@@ -15,10 +17,12 @@
       <module fileurl="file://E:\idea-space\MyProject\rtmp-server\rmtp-server.iml" filepath="E:\idea-space\MyProject\rtmp-server\rmtp-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/rtmp/rtmp.iml" filepath="$PROJECT_DIR$/rtmp/rtmp.iml" />
       <module fileurl="file://$PROJECT_DIR$/rtmp-server/rtmp-server.iml" filepath="$PROJECT_DIR$/rtmp-server/rtmp-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ssl/ssl.iml" filepath="$PROJECT_DIR$/ssl/ssl.iml" />
       <module fileurl="file://$PROJECT_DIR$/test/test.iml" filepath="$PROJECT_DIR$/test/test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/video/video.iml" filepath="$PROJECT_DIR$/video/video.iml" />
+      <module fileurl="file://$PROJECT_DIR$/uds1/uds1.iml" filepath="$PROJECT_DIR$/uds1/uds1.iml" />
       <module fileurl="file://$PROJECT_DIR$/video-reader/video-reader.iml" filepath="$PROJECT_DIR$/video-reader/video-reader.iml" />
       <module fileurl="file://$PROJECT_DIR$/websocket/websocket.iml" filepath="$PROJECT_DIR$/websocket/websocket.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zookeeper/zookeeper.iml" filepath="$PROJECT_DIR$/zookeeper/zookeeper.iml" />
     </modules>
   </component>
 </project>

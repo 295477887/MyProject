@@ -7,10 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="api-doc" />
+        <module name="baidu" />
         <module name="big-data" />
         <module name="fastdfs" />
+        <module name="jdk8" />
         <module name="kafka" />
-        <module name="lambda" />
         <module name="mqtt" />
         <module name="mqtt-paho" />
         <module name="mqtt-springboot" />
@@ -19,17 +20,21 @@
         <module name="rmtp-server" />
         <module name="rtmp" />
         <module name="rtmp-server" />
+        <module name="ssl" />
         <module name="test" />
-        <module name="video" />
+        <module name="uds1" />
         <module name="video-reader" />
         <module name="websocket" />
+        <module name="zookeeper" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="api-doc" target="1.8" />
+      <module name="baidu" target="1.8" />
       <module name="big-data" target="1.8" />
       <module name="bigdata" target="1.8" />
       <module name="fastdfs" target="1.8" />
+      <module name="jdk8" target="1.8" />
       <module name="kafka" target="1.8" />
       <module name="lambda" target="1.8" />
       <module name="lombok" target="1.8" />
@@ -42,10 +47,13 @@
       <module name="rmtp-server" target="1.8" />
       <module name="rtmp" target="1.7" />
       <module name="rtmp-server" target="1.8" />
+      <module name="ssl" target="1.8" />
       <module name="test" target="1.8" />
+      <module name="uds1" target="1.8" />
       <module name="video" target="1.8" />
       <module name="video-reader" target="1.8" />
       <module name="websocket" target="1.8" />
+      <module name="zookeeper" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

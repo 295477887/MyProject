@@ -22,7 +22,6 @@
         <module>poi</module>
         <module>mqtt-paho</module>
         <module>mqtt-springboot</module>
-        <module>lambda</module>
         <module>lombok</module>
         <module>websocket</module>
         <module>kafka</module>
@@ -33,6 +32,7 @@
         <module>rtmp-server</module>
         <module>api-doc</module>
         <module>big-data</module>
+        <module>jdk8</module>
     </modules>
     <dependencies>
 
