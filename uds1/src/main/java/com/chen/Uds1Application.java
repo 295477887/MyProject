@@ -25,21 +25,21 @@ public class Uds1Application {
          * */
 //		StopWatch stopWatch = new StopWatch();
 //		stopWatch.start();
-//		ProtocolParserImpl protocolParserImpl = ProtocolParserImpl.getInstance();
+//        ProtocolParserImpl protocolParserImpl = new ProtocolParserImpl();
 //		String filePath = "E:\\idea-space\\MyProject\\uds1\\src\\main\\resources\\";
-//		protocolParserImpl.init(filePath, "J7_EDC17_762");
+//		protocolParserImpl.init(filePath, "J7_EMSV");
 //		ArrayList lstRet = new ArrayList();
 //		String strRequest3 = "";
 //		String[] strInfo={""};
 //		stopWatch.stop();
 //		StopWatch stopWatch2 = new StopWatch();
 //		stopWatch2.start();
-//		String lineTxt = "11572.251525 18DA00F1 00 03 19 02 80\\\\n11572.261127 18DAF100 00 13 59 02 80 00 E7 00 80 00 E9 00 80 00 EA 00 80 00 EB 00 80";
+//		String lineTxt = "1595413584.492913 18daf100 00 2b 62 f1 82 33 36 30 31 36 31 31 44 37 35 48 42 30 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00";
 //		String[] split = lineTxt.split("\\\\n");
 //		for(String txt : split){
 //			lstRet.add(ProtocolParserImpl.Format_ASCII2Struct1(txt, strRequest3));
 //		}
-//		List<SigNal> sigNals = ProtocolParserImpl.Parser_PMsg2SignalAry(lstRet, strInfo);
+//		List<SigNal> sigNals = protocolParserImpl.Parser_PMsg2SignalAry(lstRet, strInfo);
 //		stopWatch2.stop();
 //		System.out.println(JSON.toJSONString(sigNals));
 //		System.out.println(sigNals);
@@ -64,7 +64,7 @@ public class Uds1Application {
 
         /**
          * 加载多个数据库
-         * 解析多个文件
+         * 解析多个流
          * */
 
 
@@ -88,8 +88,12 @@ public class Uds1Application {
         subList.add("J7_EMSV##1595415012.456657 18da00f1 00 03 22 f1 82\\\\n1595415012.722587 18daf100 00 2b 62 f1 82 33 36 30 31 36 31 31 44 37 35 48 42 30 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\\\\n1595415012.773001 18da00f1 00 03 22 f1 87\\\\n1595415012.882539 18daf100 00 0f 62 f1 87 33 36 30 31 31 31 35 2d 39 31 45 58\\\\n1595415012.933210 18da00f1 00 03 22 f1 95\\\\n1595415013.042511 18daf100 00 10 62 f1 95 46 41 57 45 34 5f 56 30 34 2e 32 30 30\\\\n");
         subList.add("J7_EMSV##1595416871.987555 18da00f1 00 03 22 f1 82\\\\n<!TimeOut>\\\\n1595416877.039231 18da00f1 00 03 22 f1 87\\\\n<!TimeOut>\\\\n1595416882.090325 18da00f1 00 03 22 f1 95\\\\n<!TimeOut>\\\\n");
         subList.add("J7_TPMS##1595415150.702999 18da33f1 00 03 19 02 08\\\\n<!TimeOut>");
+        subList.add("J7_BCM##1595584001.615521 18da21f1 00 03 19 02 08\\n1595584001.620608 18daf121 00 13 59 02 09 c2 35 87 09 c1 29 87 09 c1 2a 97 09 c2 59 87 08\\n");
+
+//        subList.add("J7_EMSV##1787.103271 18DA00F1 00 03 22 F1 82\\n1787.104614 18DAF100 00 13 62 F1 82 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30\\n1787.163208 18DA00F1 00 03 22 F1 87\\n1787.164551 18DAF100 00 13 62 F1 87 37 39 32 35 30 37 30 2D 32 30 30 30 2D 43 30 30\\n1787.223267 18DA00F1 00 03 22 F1 95\\n1787.224609 18DAF100 00 08 62 F1 95 34 2E 30 34 33\\n");
+//        subList.add("J7_EMSV##1787.073242 18DA00F1 00 03 19 02 80\\n1787.074585 18DAF100 00 07 59 02 FF 19 02 00 00\\n");
         List<String> udsList = new ArrayList();
-        for (int i = 0; i < 2000; i++) {
+        for (int i = 0; i < 100; i++) {
             udsList.addAll(subList);
         }
 
@@ -105,7 +109,7 @@ public class Uds1Application {
             }
             ProtocolParserImpl protocolParser = map.get(ecu);
             List<SigNal> sigNals = protocolParser.Parser_PMsg2SignalAry(lstRet, strInfo);
-//			System.out.println(JSON.toJSONString(sigNals));
+			System.out.println(JSON.toJSONString(sigNals));
         }
         long end2 = System.currentTimeMillis();
         System.out.println("总条数 加载数据库耗时 总耗时 平均耗时");
